@@ -273,12 +273,41 @@ button.btn {
 
 /* Footer */
 footer {
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
     background: #161b22;
     border-top: 1px solid #30363d;
     color: #8b949e;
     animation: fadeIn 0.8s ease-in;
+}
+
+.social-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #30363d;
+    border-radius: 50%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0;
+    animation: scaleUp 0.6s ease-out forwards;
+    animation-delay: calc(0.2s * var(--i));
+    transition: background 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+    background: #58a6ff;
+    transform: scale(1.1);
 }
 
 /* Responsive Design */
@@ -321,16 +350,16 @@ footer {
 }
 
 /* Custom property for animation delay */
-.feature-card, .skill-item, input, textarea {
+.feature-card, .skill-item, input, textarea, .social-icon {
     --i: 0;
 }
 
-.feature-grid .feature-card:nth-child(1), .skills-grid .skill-item:nth-child(1), form input:nth-child(1) { --i: 1; }
-.feature-grid .feature-card:nth-child(2), .skills-grid .skill-item:nth-child(2), form input:nth-child(2) { --i: 2; }
-.feature-grid .feature-card:nth-child(3), .skills-grid .skill-item:nth-child(3), form textarea { --i: 3; }
-.skills-grid .skill-item:nth-child(4) { --i: 4; }
-.skills-grid .skill-item:nth-child(5) { --i: 5; }
-.skills-grid .skill-item:nth-child(6) { --i: 6; }
+.feature-grid .feature-card:nth-child(1), .skills-grid .skill-item:nth-child(1), form input:nth-child(1), .social-icon:nth-child(1) { --i: 1; }
+.feature-grid .feature-card:nth-child(2), .skills-grid .skill-item:nth-child(2), form input:nth-child(2), .social-icon:nth-child(2) { --i: 2; }
+.feature-grid .feature-card:nth-child(3), .skills-grid .skill-item:nth-child(3), form textarea, .social-icon:nth-child(3) { --i: 3; }
+.feature-grid .feature-card:nth-child(4), .skills-grid .skill-item:nth-child(4), .social-icon:nth-child(4) { --i: 4; }
+.feature-grid .feature-card:nth-child(5), .skills-grid .skill-item:nth-child(5) { --i: 5; }
+.feature-grid .feature-card:nth-child(6), .skills-grid .skill-item:nth-child(6) { --i: 6; }
 .skills-grid .skill-item:nth-child(7) { --i: 7; }
 .skills-grid .skill-item:nth-child(8) { --i: 8; }
 .skills-grid .skill-item:nth-child(9) { --i: 9; }
