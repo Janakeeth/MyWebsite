@@ -1,169 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Janakeeth Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-   
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Janakeeth Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    .btn.view-project {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.btn.view-project:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 114, 255, 0.5);
+}
+
+    /* Project Image Hover Zoom */
+    .project-img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.4s, filter 0.4s;
+      cursor: pointer;
+      animation: popIn 1s;
+    }
+
+    .project-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+
+    /* Modal styles */
+    #imgModal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    #imgModal img {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    #imgModal .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    #imgModal .close-btn:hover {
+      color: #ddd;
+    }
+
+    /* Animation styles */
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .slide-in {
+      animation: slideIn 2s ease-in-out;
+    }
+
+    .bounce {
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Janakeeth</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact" class="btn">Contact</a></li>
-            </ul>
-            <div class="hamburger">☰</div>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="logo">Janakeeth</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="btn">Contact</a></li>
+      </ul>
+      <div class="hamburger">☰</div>
+    </nav>
+  </header>
 
-    <section id="home">
-        <div class="hero-content">
-            <h1 class="fade-in">Hello, I’m JANAKEETH</h1>
-            <p class="slide-in">
-  Web Developer | Mobile App Developer | UI/UX Designer | OOP & SOC | Full-Stack Developer | Business-Oriented Tech Enthusiast
-</p>
+  <section id="home">
+    <div class="hero-content">
+      <h1 class="fade-in">Hello, I’m JANAKEETH</h1>
+      <p class="slide-in">
+        Web Developer | Mobile App Developer | UI/UX Designer | OOP & SOC | Full-Stack Developer | Business-Oriented Tech Enthusiast
+      </p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn primary bounce">View Projects</a>
+        <a href="#contact" class="btn secondary bounce">Get in Touch</a>
+      </div>
+    </div>
+  </section>
 
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary bounce">View Projects</a>
-                <a href="#contact" class="btn secondary bounce">Get in Touch</a>
-            </div>
-        </div>
-    </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>The process of developing software through design, testing, programming, and problem-solving is known as software engineering. It assists in creating systems and applications that businesses and individuals use on a daily basis. I am proficient in both mobile and web development. I like working with the front-end and back-end and making applications that are easy to use.</p>
+  </section>
 
-    <style>
-        /* Animation styles */
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
+ <section id="projects">
+  <h2>My Projects</h2>
+  <div class="feature-grid">
+    
+    <div class="feature-card">
+      <img src="pic11.png" alt="Cosmetic Store Inventory" class="project-img" />
+      <h3>Nethra Bookstore Quotation Management System (Built using C++)</h3>
+      <a href="https://github.com/Janakeeth/The-Cosmetic-Store" class="btn view-project">View Project</a>
+    </div>
 
-        .slide-in {
-            animation: slideIn 2s ease-in-out;
-        }
+    <div class="feature-card">
+      <img src="pic.jpg" alt="Pharmacy Management Website" class="project-img" />
+      <h3>Cozy Comfort Service-Oriented Computing (SOC) System</h3>
+      <a href="https://github.com/Janakeeth/Pharmacy-Management-Website.git" class="btn view-project">View Project</a>
+    </div>
 
-        .bounce {
-            animation: bounce 1.5s infinite;
-        }
+    <div class="feature-card">
+      <img src="pic7.jpg" alt="Resort Booking App" class="project-img" />
+      <h3>LuxeVistaResort - Resort Booking Application</h3>
+      <a href="https://github.com/Janakeeth/Resort-Online-Booking-App.git" class="btn view-project">View Project</a>
+    </div>
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    <div class="feature-card">
+      <img src="pic13.png" alt="Bike Rental App" class="project-img" />
+      <h3>City Bikes - Bike Booking Application</h3>
+      <a href="https://github.com/Janakeeth/Bike-Rental-App.git" class="btn view-project">View Project</a>
+    </div>
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+    <div class="feature-card">
+      <img src="spc.png" alt="Pharmaceutical Cooperation System" class="project-img" />
+      <h3>Solution for State Pharmaceutical Corporation (SPC)</h3>
+      <a href="https://github.com/Janakeeth/Pharmaceutical-Cooperation.git" class="btn view-project">View Project</a>
+    </div>
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-    </style>
+    <div class="feature-card">
+      <img src="gym2.png" alt="Gym Website" class="project-img" />
+      <h3>FitZoneFitness Center - Gym Website</h3>
+      <a href="https://github.com/Janakeeth/Gym-Website.git" class="btn view-project">View Project</a>
+    </div>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>The process of developing software through design, testing, programming, and problem-solving is known as software engineering. It assists in creating systems and applications that businesses and individuals use on a daily basis. I am proficient in both mobile and web development. I like working with the front-end and back-end and making applications that are easy to use.</p>
-    </section>
+  </div>
+</section>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>Cosmetic Store Inventory Management System (Built using Java)</h3>
-                <p>Developed an automated stock control system for a cosmetic store selling various products like face washes, body lotions, and shampoos. Implemented user-level access for managers and cashiers to manage inventory and accounts.</p>
-                <a href="https://github.com/Janakeeth/The-Cosmetic-Store" class="btn secondary">View Project</a>
-            </div>
-            <div class="feature-card">
-                <h3>Pharmacy Management Website</h3>
-                <p>JavaScript, HTML, CSS, and SQL were used to create a web-based pharmacy management system. By integrating with pharmacy and SPC systems, it simplifies order administration, stock tracking, and supplier registration. Role-based access and secure user authentication increase operational effectiveness and security.</p>
-                <a href="https://github.com/Janakeeth/Pharmacy-Management-Website.git" class="btn secondary">View Project</a>
-            </div>
-            <div class="feature-card">
-                <h3>Resort Online Booking App</h3>
-                <p>Used Android Studio to create a resort booking app that lets users browse resorts, check availability, and make reservations. Real-time data synchronization, booking management, and user authentication were implemented for a seamless, user-friendly experience.</p>
-                <a href="https://github.com/Janakeeth/Resort-Online-Booking-App.git" class="btn secondary">View Project</a>
-            </div>
-            <div class="feature-card">
-                <h3>Bike Rental App</h3>
-                <p>The Bike Rental App is a straightforward Android app that was created in Android Studio with Java. Using their smartphones, consumers can quickly locate, rent, and return bikes. Users are able to register, see the bikes that are available, begin renting one, and follow their journey. Admins can keep an eye on rentals and control bike availability. The app facilitates quick, simple, and convenient bike sharing.</p>
-                <a href="https://github.com/Janakeeth/Bike-Rental-App.git" class="btn secondary">View Project</a>
-            </div>
-            <div class="feature-card">
-                <h3>Pharmaceutical Cooperation</h3>
-                <p>C# was used in the development of the Pharmaceutical Cooperation Management System, a desktop or web application. It facilitates the coordination of activities among pharmacies, warehouses, and pharmaceutical suppliers. The system enables pharmacies to place and monitor orders, warehouses to control stock levels, and suppliers to register and update product details. In the pharmaceutical business, it guarantees seamless coordination, enhances inventory control, and expedites the supply chain process.</p>
-                <a href="https://github.com/Janakeeth/Pharmaceutical-Cooperation.git" class="btn secondary">View Project</a>
-            </div>
-            <div class="feature-card">
-                <h3>Gym Website</h3>
-                <p>HTML, CSS, and JavaScript were used to develop the responsive and user-friendly Gym Website. It offers details on trainers, membership plans, class schedules, gym services, and contact information. Online membership sign-up, image viewing, and workout program exploration are all available to users. The website is made to be sleek, contemporary, and user-friendly across all platforms.</p>
-                <a href="https://github.com/Janakeeth/Gym-Website.git" class="btn secondary">View Project</a>
-            </div>
-        </div>
-    </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-item">HTML</div>
-            <div class="skill-item">Bootstrap</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">React</div>
-            <div class="skill-item">Git</div>
-            <div class="skill-item">UI/UX Design</div>
-            <div class="skill-item">Mobile Development</div>
-            <div class="skill-item">C#</div>
-            <div class="skill-item">MySQL</div>
-            <div class="skill-item">Firebase</div>
-            <div class="skill-item">C++</div>
-            <div class="skill-item">Java</div>
-        </div>
-    </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-item">HTML</div>
+      <div class="skill-item">Bootstrap</div>
+      <div class="skill-item">JavaScript</div>
+      <div class="skill-item">React</div>
+      <div class="skill-item">Git</div>
+      <div class="skill-item">UI/UX Design</div>
+      <div class="skill-item">Mobile Development</div>
+      <div class="skill-item">C#</div>
+      <div class="skill-item">MySQL</div>
+      <div class="skill-item">Firebase</div>
+      <div class="skill-item">C++</div>
+      <div class="skill-item">Java</div>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn primary">Send Message</button>
-        </form>
-    </section>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </section>
 
-    <footer>
-        <p>© 2025 Janakeeth. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://github.com/Janakeeth" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/janakeeth_" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="https://linkedin.com/in/janakeeth" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://instagram.com/janakeeth_" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
+  <footer>
+    <p>© 2025 Janakeeth. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com/Janakeeth" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/janakeeth_" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/janakeeth" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://instagram.com/janakeeth_" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- Image Modal -->
+  <div id="imgModal">
+    <span class="close-btn">&times;</span>
+    <img id="modalImg" src="" alt="Full View" />
+  </div>
+
+  <script>
+    // Get modal elements
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('#imgModal .close-btn');
+
+    // Attach click event to all images with class project-img
+    document.querySelectorAll('.project-img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'block';
+        modalImg.src = img.src;
+        modalImg.alt = img.alt || 'Project Image';
+      });
+    });
+
+    // Close modal when close button clicked
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImg.src = '';
+      modalImg.alt = '';
+    });
+
+    // Also close modal when clicking outside the image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+    });
+  </script>
 </body>
 </html>
